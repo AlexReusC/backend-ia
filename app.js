@@ -12,7 +12,7 @@ app.use(CsvUpload());
 const pythonProgram = async (file) => {
   const spawn = require("child_process").spawn;
   return new Promise((resolve, reject) => {
-    const ls = spawn("python3", ["dummy-model.py", file]);
+    const ls = spawn("python", ["dummy-model.py", file]);
 
     let result;
 
@@ -43,6 +43,12 @@ app.post("/", async (req, res) => {
   res.status(200);
   res.send({ result: result });
 });
+
+app.get('/api-imgs/:img_id', function (req, res) {
+     console.log(req.img_id)
+     res.sendFile(__dirname +'/api-imgs/'+ req.params.img_id);
+});
+
 
 app.listen(3000, (error) => {
   if (!error) {
