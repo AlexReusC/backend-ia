@@ -12,4 +12,6 @@ coverage
 benchmarks/graphs
 
 # ignore additional files using core.excludesFile
+api-imgs
 # https://git-scm.com/docs/gitignore
+
